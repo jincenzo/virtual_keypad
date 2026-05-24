@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  keypad:
+    build:
+      context: .
+      args:
+        - VITE_API_ENDPOINT=${VITE_API_ENDPOINT:-https://n8n.mmfamily.cc/webhook/unlock_main_door}
+        - VITE_LABEL_SYSTEM_SECURED=${VITE_LABEL_SYSTEM_SECURED:-System Secured}
+        - VITE_LABEL_ENTER_PASSCODE=${VITE_LABEL_ENTER_PASSCODE:-Enter Passcode}
+    ports:
+      - "8080:80"
+    restart: unless-stopped
